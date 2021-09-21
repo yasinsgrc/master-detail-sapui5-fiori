@@ -1,11 +1,11 @@
 
 ### Application Runtime
 
-![live ss](/1.png)
+![live ss](/first.png)
 
 ### After Selected an Item from List
 
-![live ss](2.png)
+![live ss](/second.png)
 
 ## Application Details
 |               |
