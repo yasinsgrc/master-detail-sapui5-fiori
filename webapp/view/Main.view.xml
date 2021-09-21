@@ -1,0 +1,131 @@
+<mvc:View
+	controllerName="casethree.controller.Main"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+>
+	<App id="app">
+		<pages>
+			<Page
+				id="page"
+				title="{i18n>title}"
+			>
+				<customHeader>
+					<Bar>
+						<contentLeft>
+							<Button
+								tooltip="Back"
+								icon="sap-icon://nav-back"
+								press="goToMainPage"
+							/>
+						</contentLeft>
+						<contentMiddle>
+							<Title text="Leave Approval"/>
+						</contentMiddle>
+						<contentRight>
+							<Button
+								tooltip="Logout"
+								icon="sap-icon://log"
+							/>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+					<SplitApp
+						id="SplitAppDemo"
+						initialDetail="detail"
+						initialMaster="master"
+					>
+						<masterPages>
+							<Page
+								title="Leave Applications list"
+								backgroundDesign="List"
+								class="sapUiStdPage"
+							>
+								<List
+									items="{objectModel>/employee}"
+									id="list"
+									mode="SingleSelect"
+									selectionChange="onItemSelected"
+								>
+									<!-- <List id="list" mode="Delete" delete="handleDelete" enableBusyIndicator="true" items="{editModel>/employee}"> -->
+									<items>
+										<ObjectListItem title="{objectModel>Name}">
+											<ObjectAttribute text="Department: {objectModel>Department}"/>
+										</ObjectListItem>
+									</items>
+								</List>
+							</Page>
+						</masterPages>
+						<detailPages>
+							<Panel>
+								<f:SimpleForm
+									editable="true"
+									layout="ResponsiveGridLayout"
+									title="Application details"
+									id="appDetailsPanel"
+										
+								>
+								
+									<Label text="Type of Leave"/>
+									<Text
+										text="{/TypeLeave}"
+										
+									/>
+									<Label text="Employee name"/>
+									<Text
+										text="{/Name}"
+										
+										
+									/>
+									<Label text="Department"/>
+									<Text
+										text="{/Department}"
+										
+									/>
+									<Label text="Start date"/>
+									<Text
+										id="Input3"
+										text="{/StartDate}"
+										
+									/>
+									<Label text="End date"/>
+									<Text
+										id="Input4"
+										text="{/EndDate}"
+										
+									/>
+									<Label text="Number of Days"/>
+									<Text
+										id="Input5"
+										text="{path:'EndDate', formatter:'.calculate'}"
+									/>
+								
+								</f:SimpleForm>
+							</Panel>
+						</detailPages>
+					</SplitApp>
+				</content>
+				<footer>
+					<Bar>
+						<contentMiddle>
+							<Button
+								type="Accept"
+								text="Accept"
+								press="onClick"
+								tooltip="{i18n>approveButtonText}"
+							/>
+							<Button
+								type="Reject"
+								text="Reject"
+								press="onClick"
+								tooltip="{i18n>rejectButtonText}"
+							/>
+						</contentMiddle>
+					</Bar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

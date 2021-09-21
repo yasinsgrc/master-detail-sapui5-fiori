@@ -1,0 +1,46 @@
+{
+    "employee": [
+        {
+            "Name": "Yasin Sığırcı",
+            "TypeLeave":"Annual Leave",
+            "Department": "Sales",
+            "StartDate": "08/20/2020",
+            "EndDate": "08/11/2025"
+        },
+        {
+            "Name": "Selim Sığırcı",
+            "TypeLeave":"Annual Leave",
+            "Department": "Administration",
+            "StartDate": "08/20/2020",
+            "EndDate": "09/11/2025"
+        },
+        {
+            "Name": "Mehmet Sığırcı",
+            "TypeLeave":"Annual Leave",
+            "Department": "Sales",
+            "StartDate": "08/20/2020",
+            "EndDate": "10/11/2025"
+        },
+        {
+            "Name": "Fahri Sığırcı",
+            "TypeLeave":"Annual Leave",
+            "Department": "Administration",
+            "StartDate": "08/20/2020",
+            "EndDate": "11/11/2025"
+        },
+        {
+            "Name": "Tarık Sığırcı",
+            "TypeLeave":"Annual Leave",
+            "Department": "Sales",
+            "StartDate": "08/20/2020",
+            "EndDate": "12/11/2025"
+        },
+        {
+            "Name": "Zahid Sığırcı",
+            "TypeLeave":"Annual Leave",
+            "Department": "Administration",
+            "StartDate": "08/20/2020",
+            "EndDate": "11/11/2025"
+        }
+    ]
+}
