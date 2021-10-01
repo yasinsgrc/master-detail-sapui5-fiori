@@ -13,7 +13,14 @@ sap.ui.define([
 				var oModel = new sap.ui.model.json.JSONModel();
 				oModel.loadData("./model/objects.json");
 				this.getView().setModel(oModel, "objectModel");
-				
+
+				var aData={ "path":"casethree.view.Detail"};
+				oModel.setData(aData);
+				sap.ui.getCore().setModel(oModel);
+				this.getView().setModel(oModel);
+				oModel.refresh();
+
+				debugger;
 			},
 			goToMainPage: function () {
 				window.history.go(-1);
@@ -23,17 +30,17 @@ sap.ui.define([
 
 				var oModel = new JSONModel();
 				var aData = {};
-				var that = this;
-				
-				
+
+				debugger;
 				var oSelectedItem = oEvent.getParameter("listItem"); //listItem
 				var oContext = oSelectedItem.getBindingContext("objectModel").getObject();// modelimizin adı objectModel
 				aData = oContext;
 
 				oModel.setData(aData);
 				sap.ui.getCore().setModel(oModel);
-				that.getView().setModel(oModel);
+				this.getView().setModel(oModel);
 				oModel.refresh();
+				// sap.ui.getCore()._aData = aData;
 
 			},
 	
@@ -47,13 +54,6 @@ sap.ui.define([
 				var removed = oData.employee.splice(iIndex, 1);
 				oModel.refresh(true);
 			},
-			calculate: function (days) {
-				var startDate = new Date(this.getView().byId("Input3").getText());
-				var endDate = new Date(this.getView().byId("Input4").getText());
-				var diff = Math.abs(startDate.getTime() - endDate.getTime());
-				var diffD = Math.ceil(diff / (1000 * 60 * 60 * 24));
-				this.getView().byId("Input5").setText(diffD);
-				return diffD;
-			},
+			
 		});
 	});

@@ -3,7 +3,6 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	displayBlock="true"
 	xmlns="sap.m"
-	xmlns:f="sap.ui.layout.form"
 >
 	<App id="app">
 		<pages>
@@ -51,80 +50,22 @@
 								>
 									<!-- <List id="list" mode="Delete" delete="handleDelete" enableBusyIndicator="true" items="{editModel>/employee}"> -->
 									<items>
-										<ObjectListItem title="{objectModel>Name}">
-											<ObjectAttribute text="Department: {objectModel>Department}"/>
+										<ObjectListItem
+											title="{objectModel>Name}"
+											number="{objectModel>Department}"
+											numberState="{= ${objectModel>Department} === 'Sales' ? 'Error': 'Success'}"
+										>
+											<ObjectAttribute text="Type of Leave: {objectModel>TypeLeave}"/>
 										</ObjectListItem>
 									</items>
 								</List>
 							</Page>
 						</masterPages>
 						<detailPages>
-							<Panel>
-								<f:SimpleForm
-									editable="true"
-									layout="ResponsiveGridLayout"
-									title="Application details"
-									id="appDetailsPanel"
-										
-								>
-								
-									<Label text="Type of Leave"/>
-									<Text
-										text="{/TypeLeave}"
-										
-									/>
-									<Label text="Employee name"/>
-									<Text
-										text="{/Name}"
-										
-										
-									/>
-									<Label text="Department"/>
-									<Text
-										text="{/Department}"
-										
-									/>
-									<Label text="Start date"/>
-									<Text
-										id="Input3"
-										text="{/StartDate}"
-										
-									/>
-									<Label text="End date"/>
-									<Text
-										id="Input4"
-										text="{/EndDate}"
-										
-									/>
-									<Label text="Number of Days"/>
-									<Text
-										id="Input5"
-										text="{path:'EndDate', formatter:'.calculate'}"
-									/>
-								
-								</f:SimpleForm>
-							</Panel>
+							<mvc:XMLView viewName="casethree.view.Detail"/>
 						</detailPages>
 					</SplitApp>
 				</content>
-				<footer>
-					<Bar>
-						<contentMiddle>
-							<Button
-								type="Accept"
-								text="Accept"
-								press="onClick"
-								tooltip="{i18n>approveButtonText}"
-							/>
-							<Button
-								type="Reject"
-								text="Reject"
-								press="onClick"
-								tooltip="{i18n>rejectButtonText}"
-							/>
-						</contentMiddle>
-					</Bar>
-				</footer>
 			</Page>
 		</pages>
 	</App>
